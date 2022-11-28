@@ -1,2 +1,2 @@
 # ApiWebDDD
-API Dotnet com padrão de projeto DDD
+API Dotnet 6 com padrão de projeto DDD
