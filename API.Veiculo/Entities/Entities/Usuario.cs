@@ -3,7 +3,8 @@ namespace Entities.Entities
 {
     public class Usuario
     {
-        public Usuario(int usuarioID, string nome, string sexo, string dataNascimento, int idade, string email)        {
+        public Usuario(int usuarioID, string nome, string sexo, string dataNascimento, int idade, string email)
+        {
             UsuarioID = usuarioID;
             Nome = nome;
             Sexo = sexo;
