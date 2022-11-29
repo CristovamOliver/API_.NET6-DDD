@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Veiculo", "API.Veiculo\API.Veiculo.csproj", "{EB1A951F-9044-4601-93CF-F9B3FF40240B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{A11F6DC4-F182-49A8-B0D9-D96CC84234FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{421AC8AE-F6AC-47E0-B4E8-89992EFE257B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - Infrastructure", "{191F0EF7-0AD3-4C64-BD47-3CC5E7B7AB1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Entities", "4 - Entities", "{F57B674A-AB61-4AE4-BC6F-855E4C15EE34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{ACCAC826-B172-4C5B-8ED8-60D326A1C0E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{768E2B1B-69F9-43E3-B292-F60129F8F2E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{04C86053-F847-4823-9E9D-10972D6D3A27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{4248AEE1-370B-4CAD-9A36-F84CD46E95C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{066AEF69-CFF8-478A-AD88-52D6A8F2ACE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +27,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB1A951F-9044-4601-93CF-F9B3FF40240B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB1A951F-9044-4601-93CF-F9B3FF40240B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB1A951F-9044-4601-93CF-F9B3FF40240B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB1A951F-9044-4601-93CF-F9B3FF40240B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{768E2B1B-69F9-43E3-B292-F60129F8F2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{768E2B1B-69F9-43E3-B292-F60129F8F2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{768E2B1B-69F9-43E3-B292-F60129F8F2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{768E2B1B-69F9-43E3-B292-F60129F8F2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C86053-F847-4823-9E9D-10972D6D3A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C86053-F847-4823-9E9D-10972D6D3A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C86053-F847-4823-9E9D-10972D6D3A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C86053-F847-4823-9E9D-10972D6D3A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4248AEE1-370B-4CAD-9A36-F84CD46E95C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4248AEE1-370B-4CAD-9A36-F84CD46E95C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4248AEE1-370B-4CAD-9A36-F84CD46E95C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4248AEE1-370B-4CAD-9A36-F84CD46E95C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{066AEF69-CFF8-478A-AD88-52D6A8F2ACE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066AEF69-CFF8-478A-AD88-52D6A8F2ACE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066AEF69-CFF8-478A-AD88-52D6A8F2ACE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066AEF69-CFF8-478A-AD88-52D6A8F2ACE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{768E2B1B-69F9-43E3-B292-F60129F8F2E6} = {F57B674A-AB61-4AE4-BC6F-855E4C15EE34}
+		{04C86053-F847-4823-9E9D-10972D6D3A27} = {ACCAC826-B172-4C5B-8ED8-60D326A1C0E3}
+		{4248AEE1-370B-4CAD-9A36-F84CD46E95C2} = {191F0EF7-0AD3-4C64-BD47-3CC5E7B7AB1B}
+		{066AEF69-CFF8-478A-AD88-52D6A8F2ACE6} = {421AC8AE-F6AC-47E0-B4E8-89992EFE257B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC2F8437-20C1-44DC-BF61-934DA0342889}
