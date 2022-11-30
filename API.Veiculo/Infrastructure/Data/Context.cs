@@ -6,6 +6,7 @@ namespace Infrastructure.Data
     public class Context : IDisposable
     {
         private readonly IConfiguration _configuration;
+
         public Context(IConfiguration configuration)
         {
             _configuration = configuration;
