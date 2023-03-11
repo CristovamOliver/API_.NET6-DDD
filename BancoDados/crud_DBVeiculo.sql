@@ -1,4 +1,3 @@
-
 -- INSERT USUARIO
 
 INSERT INTO USUARIO(Nome, Sexo, DataNascimento, Idade, Email)
@@ -26,7 +25,7 @@ VALUES
 
 -- INSERT MARCA
 
-INSERT INTO MARCA(Marca)
+INSERT INTO MARCA(NomeMarca)
 VALUES
 ('Toyota'),
 ('Honda'),

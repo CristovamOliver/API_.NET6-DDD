@@ -15,7 +15,7 @@ INNER JOIN MARCA ON MARCA.MarcaID = CARRO.CarroID
 
 -- SELECT COM COLUNAS
 SELECT USUARIO.UsuarioID, Nome, Sexo, DataNascimento, Idade, Email,
-Marca, Modelo, Ano, Cor, KM
+NomeMarca, Modelo, Ano, Cor, KM
 FROM USUARIO WITH (NOLOCK)
 INNER JOIN MARCA ON MARCA.MarcaID = USUARIO.UsuarioID
 INNER JOIN CARRO ON USUARIO.UsuarioID = CARRO.CarroID
