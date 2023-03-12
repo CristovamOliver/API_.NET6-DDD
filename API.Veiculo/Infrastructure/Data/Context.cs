@@ -17,6 +17,10 @@ namespace Infrastructure.Data
 
             {
                 var connection = _configuration.GetConnectionString("DefaultConnection");
+                if (connection == null)
+                {
+                    throw new InvalidOperationException("Não foi possível conectar ao banco de dados.");
+                }
                 return connection;
             }
 
