@@ -4,9 +4,6 @@ using Entities.Entities;
 using Infrastructure.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Abstractions;
-using System.Reflection;
-using System.Runtime.ConstrainedExecution;
 
 namespace Infrastructure.Repositories
 {
