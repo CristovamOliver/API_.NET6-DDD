@@ -1,2 +1,2 @@
-# ApiWebDDD
-API Dotnet 6 com padrão de projeto DDD
+# API Restful
+API Restful .NETCore 6 com padrão de projeto DDD
