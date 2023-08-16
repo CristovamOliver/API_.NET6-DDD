@@ -15,7 +15,7 @@ namespace Infrastructure.Repositories
                                             SET
 	                                            nomeMarca = @nomeMarca,
                                             WHERE
-	                                            CarroID = @CarroID";
+	                                            MarcaID = @MarcaID";
 
         private string cadastrarMarca = @"INSERT INTO Marca
 	                                                        (nomeMarca)
@@ -25,7 +25,7 @@ namespace Infrastructure.Repositories
         private string excluirMarca = @"DELETE FROM
 	                                            Marca
                                             WHERE
-	                                            CarroID = @CarroID";
+	                                            MarcaID = @MarcaID";
 
 
         private string buscarMarca = @"SELECT 
@@ -33,7 +33,7 @@ namespace Infrastructure.Repositories
                                         FROM 
 	                                        Marca(nolock)
                                         WHERE
-	                                        CarroID = @CarroID";
+	                                        MarcaID = @MarcaID";
 
 
         private string buscarMarcas = @"SELECT * FROM  Marca WITH (NOLOCK);";
@@ -112,7 +112,7 @@ namespace Infrastructure.Repositories
                     {
                         nomeMarca = marca.NomeMarca
                     });
-                    var linhasAfetadas = con.Execute(atualizaMarca, marcaCadastrada);
+                    var linhasAfetadas = con.Execute(cadastrarMarca, marcaCadastrada);
                     if (linhasAfetadas > 0)
                         return true;
                     return false;

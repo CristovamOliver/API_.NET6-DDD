@@ -4,12 +4,6 @@ namespace Application.DTO
 {
     public class UsuarioDTO
     {
-        public UsuarioDTO(int UsuarioID, string UsuarioName)
-        {
-            UsuarioID = UsuarioID;
-            UsuarioName = UsuarioName;
-
-        }
         public int UsuarioID { get; set; }
         [Required(ErrorMessage = "Nome de usuário é obrigatório !")]
         public string Nome { get; set; }
