@@ -7,7 +7,7 @@ namespace Application.Interface
         Task<bool> CadastrarMarca(MarcaDTO marcaId);
         Task<bool> AtualizarMarca(MarcaDTO NomeMarca);
         Task<bool> ExcluirMarca(int marcaId);
-        Task<MarcaDTO> BuscarMarca(int marcaId);
+        Task<List<MarcaDTO>> BuscarMarca(int marcaId);
         Task<List<MarcaDTO>> BuscarMarcas();
     }
 }

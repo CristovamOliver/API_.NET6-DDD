@@ -10,7 +10,7 @@ namespace Application.DTO
         public int Ano { get; set; }
         public string Cor { get; set; }
         public int KM { get; set; }
-        public virtual UsuarioDTO? UsuarioID { get; set; }
+        //public virtual UsuarioDTO? UsuarioID { get; set; }
 
 
     }

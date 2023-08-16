@@ -19,7 +19,7 @@ namespace Domain.Services
             return atualizarMarca;
         }
 
-        public Task<Marca> BuscarMarca(int marcaId)
+        public Task<List<Marca>> BuscarMarca(int marcaId)
         {
             var buscarMarca = _marcaRepository.BuscarMarca(marcaId);
             return buscarMarca;

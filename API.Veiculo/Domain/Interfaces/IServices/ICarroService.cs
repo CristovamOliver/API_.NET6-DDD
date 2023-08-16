@@ -8,7 +8,7 @@ namespace Domain.Interfaces.IServices
         Task<bool> CadastrarCarro(Carro carro);
         Task<bool> AtualizarCarro(Carro carro);
         Task<List<Carro>> SelecionarCarros();
-        Task<Carro> CarroEspecifico(int carroId);
+        Task<List<Carro>> CarroEspecifico(int carroId);
         Task<bool> ExcluirCarro(int carroId);
     }
 }

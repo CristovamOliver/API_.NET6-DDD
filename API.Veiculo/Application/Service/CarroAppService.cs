@@ -3,6 +3,7 @@ using Application.Interface;
 using AutoMapper;
 using Domain.Interfaces.IServices;
 using Entities.Entities;
+using System.Text.RegularExpressions;
 
 namespace Application.Service
 {
@@ -30,10 +31,15 @@ namespace Application.Service
             return cadastrarCarro;
         }
 
-        public async Task<CarroDTO> CarroEspecifico(int carroId)
+        public async Task<List<CarroDTO>>CarroEspecifico(int carroId)
         {
-            var carroEspecifico = _mapper.Map<CarroDTO>(await _carroService.CarroEspecifico(carroId));
-            return carroEspecifico;
+            var carroEspecifico = _mapper.Map<List<CarroDTO>>(await _carroService.CarroEspecifico(carroId));
+            var listaSemEspaco = carroEspecifico = carroEspecifico.Select(item => {
+                item.Modelo = Regex.Replace(item.Modelo, @"\s+", ""); // remove all white spaces
+                item.Cor = Regex.Replace(item.Cor, @"\s+", ""); // remove all white spaces
+                return item; // return processed item...
+            }).ToList(); // return as a List
+            return listaSemEspaco;
         }
 
         public async Task<bool> ExcluirCarro(int carroId)
@@ -45,7 +51,13 @@ namespace Application.Service
         public async Task<List<CarroDTO>> SelecionarCarros()
         {
             var selecionarCarros = _mapper.Map<List<CarroDTO>>(await _carroService.SelecionarCarros());
-            return selecionarCarros;
+
+            var listaSemEspaco = selecionarCarros = selecionarCarros.Select(item => {
+                item.Modelo = Regex.Replace(item.Modelo, @"\s+", ""); // remove all white spaces
+                item.Cor = Regex.Replace(item.Cor, @"\s+", ""); // remove all white spaces
+                return item; // return processed item...
+            }).ToList(); // return as a List
+            return listaSemEspaco;
         }
     }
 }

@@ -3,6 +3,7 @@ using Application.Interface;
 using AutoMapper;
 using Domain.Interfaces.IServices;
 using Entities.Entities;
+using System.Text.RegularExpressions;
 
 namespace Application.Service
 {
@@ -23,16 +24,24 @@ namespace Application.Service
             return atualizarMarca;
         }
 
-        public async Task<MarcaDTO> BuscarMarca(int marcaId)
+        public async Task<List<MarcaDTO>> BuscarMarca(int marcaId)
         {
-            var buscaMarca = _mapper.Map<MarcaDTO>(await _marcaService.BuscarMarca(marcaId));
-            return buscaMarca;
+            var buscaMarca = _mapper.Map<List<MarcaDTO>>(await _marcaService.BuscarMarca(marcaId));
+            var listaSemEspaco = buscaMarca = buscaMarca.Select(item => {
+                item.NomeMarca = Regex.Replace(item.NomeMarca, @"\s+", ""); // remove all white spaces
+                return item; // return processed item...
+            }).ToList(); // return as a List
+            return listaSemEspaco;
         }
 
         public async Task<List<MarcaDTO>> BuscarMarcas()
         {
             var buscarMarcas = _mapper.Map<List<MarcaDTO>>(await _marcaService.BuscarMarcas());
-            return buscarMarcas;
+            var listaSemEspaco = buscarMarcas = buscarMarcas.Select(item => {
+                item.NomeMarca = Regex.Replace(item.NomeMarca, @"\s+", ""); // remove all white spaces
+                return item; // return processed item...
+            }).ToList(); // return as a List
+            return listaSemEspaco;
         }
 
         public async Task<bool> CadastrarMarca(MarcaDTO marcaId)

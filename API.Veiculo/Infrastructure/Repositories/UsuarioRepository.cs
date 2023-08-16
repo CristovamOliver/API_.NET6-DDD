@@ -66,8 +66,7 @@ namespace Infrastructure.Repositories
                         Idade = usuario.Idade,
                         Email = usuario.Email,
                     });
-                    var linhasAfetadas = con.Execute(atualizaUsuario, usuarioAtualizado);
-                    if (linhasAfetadas > 0)
+                    if (usuarioAtualizado == 1)
                         return true;
                     return false;
                 }
@@ -130,8 +129,7 @@ namespace Infrastructure.Repositories
                         Email = usuario.Email
 
                     });
-                    var linhasAfetadas = con.Execute(cadastraUsuario, usuarioCadastrado);
-                    if (linhasAfetadas > 0)
+                    if (usuarioCadastrado == 1)
                         return true;
                     return false;
                 }

@@ -61,11 +61,11 @@ namespace Infrastructure.Repositories
                         CarroID = carro.CarroID,
                         Modelo = carro.Modelo,
                         Ano = carro.Ano,
-                        Cor = carro.Cor
+                        Cor = carro.Cor,
+                        KM = carro.KM
 
                     });
-                    var linhasAfetadas = con.Execute(atualizarCarro, carroAtualizado);
-                    if (linhasAfetadas > 0)
+                    if (carroAtualizado == 1)
                         return true;
                     return false;
                 }
@@ -90,8 +90,7 @@ namespace Infrastructure.Repositories
                         KM = carro.KM
 
                     });
-                    var linhasAfetadas = con.Execute(cadastrarCarro, carroCadastrado);
-                    if (linhasAfetadas > 0)
+                    if (carroCadastrado == 1)
                         return true;
                     return false;
                 }
@@ -102,17 +101,16 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task<Carro> CarroEspecifico(int carroId)
+        public async Task<List<Carro>> CarroEspecifico(int carroId)
         {
             try
             {
                 using (var con = new SqlConnection(connection))
                 {
-                    var carro = await con.QuerySingleAsync<Carro>(buscarCarro, new { carroID = carroId });
-
-                    if (carro.CarroID == 0)
-                        return new Carro();
-                    return carro;
+                    var carro = await con.QueryAsync<Carro>(buscarCarro, new { carroID = carroId });
+                    if (carro.Any())
+                        return carro.ToList();
+                    return new List<Carro>();
                 }
             }
             catch (SqlException ex)

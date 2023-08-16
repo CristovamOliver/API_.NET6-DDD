@@ -24,7 +24,7 @@ namespace Domain.Services
             return cadastrarCarro;
         }
 
-        public Task<Carro> CarroEspecifico(int carroId)
+        public Task<List<Carro>> CarroEspecifico(int carroId)
         {
             var carro = _carroRepository.CarroEspecifico(carroId);
             return carro;

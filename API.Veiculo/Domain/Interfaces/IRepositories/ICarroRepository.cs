@@ -8,6 +8,6 @@ namespace Domain.Interfaces.IRepositories
         Task<bool> AtualizarCarro(Carro carro);
         Task<bool> ExcluirCarro(int carroId);
         Task<List<Carro>> SelecionarCarros();
-        Task<Carro> CarroEspecifico(int carroId);
+        Task<List<Carro>> CarroEspecifico(int carroId);
     }
 }

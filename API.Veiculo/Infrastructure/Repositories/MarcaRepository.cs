@@ -13,7 +13,7 @@ namespace Infrastructure.Repositories
         private string atualizaMarca = @"UPDATE 
 	                                            Marca
                                             SET
-	                                            nomeMarca = @nomeMarca,
+	                                            NomeMarca = @nomeMarca
                                             WHERE
 	                                            MarcaID = @MarcaID";
 
@@ -51,11 +51,10 @@ namespace Infrastructure.Repositories
                 using (var con = new SqlConnection(connection))
                 {
                     var marcaAtualizada = await con.ExecuteAsync(atualizaMarca, new
-                    {
+                    {   marcaId = marca.MarcaID,
                         nomeMarca = marca.NomeMarca
                     });
-                    var linhasAfetadas = con.Execute(atualizaMarca, marcaAtualizada);
-                    if (linhasAfetadas > 0)
+                    if (marcaAtualizada == 1)
                         return true;
                     return false;
                 }
@@ -66,16 +65,16 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task<Marca> BuscarMarca(int marcaId)
+        public async Task<List<Marca>> BuscarMarca(int marcaId)
         {
             try
             {
                 using (var con = new SqlConnection(connection))
                 {
-                    var marca = await con.QuerySingleAsync<Marca>(buscarMarca, new { MarcaID = marcaId });
-                    if (marca.MarcaID == 0)
-                        return new Marca();
-                    return marca;
+                    var marca = await con.QueryAsync<Marca>(buscarMarca, new { MarcaID = marcaId });
+                    if (marca.Any())
+                        return marca.ToList();
+                    return new List<Marca>();
                 }
             }
             catch (SqlException ex)
@@ -112,8 +111,7 @@ namespace Infrastructure.Repositories
                     {
                         nomeMarca = marca.NomeMarca
                     });
-                    var linhasAfetadas = con.Execute(cadastrarMarca, marcaCadastrada);
-                    if (linhasAfetadas > 0)
+                    if (marcaCadastrada == 1)
                         return true;
                     return false;
                 }
