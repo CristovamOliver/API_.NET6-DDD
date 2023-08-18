@@ -14,12 +14,12 @@ VALUES('Lucas Oliveira', 'M', '22/02/1996', '26', 'contato.lucas55@gmail.com'),
 
 INSERT INTO CARRO(Modelo, Marca, Ano, Cor, KM)
 VALUES
-('Corolla', '2007', 'Preto', 97357),
-('Civic', '2022', 'Preto', 7111),
-('HB20', '2016', 'Prata', 45989),
-('Spin', '2018', 'Cinza', 11234),
-('Sportage', '2014', 'Preto', 80792),
-('Fusca', '1977', 'Amarelo', 592128);
+('Corolla', 'Toyota', '2007', 'Preto', 97357),
+('Civic', 'Honda', '2022', 'Preto', 7111),
+('HB20', 'Hyundai', '2016', 'Prata', 45989),
+('Spin', 'Chevrolet', '2018', 'Cinza', 11234),
+('Sportage', 'Kia', '2014', 'Preto', 80792),
+('Fusca', 'VW', '1977', 'Amarelo', 592128);
 
 
 
