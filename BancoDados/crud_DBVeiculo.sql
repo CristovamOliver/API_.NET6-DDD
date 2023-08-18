@@ -12,7 +12,7 @@ VALUES('Lucas Oliveira', 'M', '22/02/1996', '26', 'contato.lucas55@gmail.com'),
 
 -- INSERT CARRO
 
-INSERT INTO CARRO(Modelo, Ano, Cor, KM)
+INSERT INTO CARRO(Modelo, Marca, Ano, Cor, KM)
 VALUES
 ('Corolla', '2007', 'Preto', 97357),
 ('Civic', '2022', 'Preto', 7111),
@@ -23,16 +23,6 @@ VALUES
 
 
 
--- INSERT MARCA
-
-INSERT INTO MARCA(NomeMarca)
-VALUES
-('Toyota'),
-('Honda'),
-('Hyundai'),
-('GM'),
-('KIA'),
-('VW');
 
 -- ALTERAR COLUNA
 UPDATE USUARIO SET DataNascimento = '18/02/1999'
@@ -42,9 +32,8 @@ WHERE UsuarioID = 3;
 DROP TABLE CARRO;
 
 -- EXCLUIR REGISTRO
-DELETE FROM MARCA WHERE MarcaID = 2;
+DELETE FROM CARRO WHERE CarroID = 2;
 
 -- EXCLUIR VÁRIOS REGISTROS
 DELETE FROM CARRO;
-DELETE FROM MARCA;
 DELETE FROM USUARIO;
