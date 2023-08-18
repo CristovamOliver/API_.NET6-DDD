@@ -14,17 +14,14 @@ namespace CrossCutting
         {
             //// AppService
             services.AddTransient<ICarroAppService, CarroAppService>();
-            services.AddTransient<IMarcaAppService, MarcaAppService>();
             services.AddTransient<IUsuarioAppService, UsuarioAppService>();
 
             //// Service
             services.AddTransient<ICarroService, CarroService>();
-            services.AddTransient<IMarcaService, MarcaService>();
             services.AddTransient<IUsuarioService, UsuarioService>();
 
             //// Repository
             services.AddTransient<ICarroRepository, CarroRepository>();
-            services.AddTransient<IMarcaRepository, MarcaRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
         }
     }

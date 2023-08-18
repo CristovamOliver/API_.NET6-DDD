@@ -4,6 +4,7 @@ using Entities.Entities;
 using Infrastructure.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Text.RegularExpressions;
 
 namespace Infrastructure.Repositories
 {
@@ -15,6 +16,7 @@ namespace Infrastructure.Repositories
 	                                            Carro
                                             SET
 	                                            Modelo = @Modelo,
+                                                Marca = @Marca,
                                                 Ano = @Ano,
                                                 Cor = @Cor,
                                                 KM = @KM
@@ -22,9 +24,9 @@ namespace Infrastructure.Repositories
 	                                            CarroID = @CarroID";
 
         private string cadastrarCarro = @"INSERT INTO Carro
-	                                                        (Modelo, Ano, Cor, KM)
+	                                                        (Modelo, Marca, Ano, Cor, KM)
                                                         VALUES
-	                                                        (@Modelo, @Ano, @Cor, @KM)";
+	                                                        (@Modelo, @Marca, @Ano, @Cor, @KM)";
 
         private string excluirCarro = @"DELETE FROM
 	                                            Carro
@@ -60,6 +62,7 @@ namespace Infrastructure.Repositories
                     {
                         CarroID = carro.CarroID,
                         Modelo = carro.Modelo,
+                        Marca = carro.Marca,
                         Ano = carro.Ano,
                         Cor = carro.Cor,
                         KM = carro.KM
@@ -85,6 +88,7 @@ namespace Infrastructure.Repositories
                     var carroCadastrado = await con.ExecuteAsync(cadastrarCarro, new
                     {
                         Modelo = carro.Modelo,
+                        Marca = carro.Marca,
                         Ano = carro.Ano,
                         Cor = carro.Cor,
                         KM = carro.KM

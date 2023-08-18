@@ -23,7 +23,7 @@ namespace Domain.Services
             var todosUsuarios = _usuarioRepository.BuscarUsuarios();
             return todosUsuarios;
         }
-        public Task<Usuario> BuscarUsuario(int UsuarioID)
+        public Task<List<Usuario>> BuscarUsuario(int UsuarioID)
         {
             var usuario = _usuarioRepository.BuscarUsuario(UsuarioID);
             return usuario;

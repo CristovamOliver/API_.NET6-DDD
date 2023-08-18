@@ -29,9 +29,9 @@ namespace Application.Service
             return buscarUsuarios;
         }
 
-        public async Task<UsuarioDTO> BuscarUsuario(int usuarioId)
+        public async Task<List<UsuarioDTO>> BuscarUsuario(int usuarioId)
         {
-            var buscarUsuario = _mapper.Map<UsuarioDTO>(await _usuarioservice.BuscarUsuario(usuarioId));
+            var buscarUsuario = _mapper.Map<List<UsuarioDTO>>(await _usuarioservice.BuscarUsuario(usuarioId));
             return buscarUsuario;
         }
 

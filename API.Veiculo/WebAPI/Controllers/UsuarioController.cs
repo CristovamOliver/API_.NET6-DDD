@@ -1,6 +1,8 @@
 ﻿using Application.DTO;
 using Application.Interface;
+using Entities.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System.Net;
 
 namespace WebAPI.Controllers
@@ -40,8 +42,11 @@ namespace WebAPI.Controllers
             try
             {
                 var buscarusuario = await _usuarioAppService.BuscarUsuario(usuarioId);
-                if (buscarusuario == null)
+                if (buscarusuario.IsNullOrEmpty())
+                {
                     return NotFound("Usuário não encontrado !");
+
+                }
                 return Ok(buscarusuario);
             }
             catch (ArgumentException ex)
@@ -59,7 +64,7 @@ namespace WebAPI.Controllers
                     return Ok(cadastrausuario);
                 return BadRequest("Não foi possível cadastrar usuário");
             }
-            catch(ArgumentException ex) 
+            catch (ArgumentException ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }

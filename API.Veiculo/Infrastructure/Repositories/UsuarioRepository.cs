@@ -4,6 +4,7 @@ using Entities.Entities;
 using Infrastructure.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Infrastructure.Repositories
@@ -77,16 +78,16 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task<Usuario> BuscarUsuario(int UsuarioID)
+        public async Task<List<Usuario>> BuscarUsuario(int UsuarioID)
         {
             try
             {
                 using (var con = new SqlConnection(connection))
                 {
-                    var usuario = await con.QuerySingleAsync<Usuario>(buscarUsuario, new { UsuarioID = UsuarioID });
-                    if (usuario.UsuarioID == 0)
-                        return new Usuario();
-                    return usuario;
+                    var usuario = await con.QueryAsync<Usuario>(buscarUsuario, new { UsuarioID = UsuarioID });
+                    if (usuario.Any())
+                        return usuario.ToList();
+                    return new List<Usuario>();
 
                 }
             }

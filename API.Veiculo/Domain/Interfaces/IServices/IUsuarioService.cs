@@ -6,7 +6,7 @@ namespace Domain.Interfaces.IServices
     {
         Task<bool> CadastrarUsuario(Usuario usuario);
         Task<List<Usuario>> BuscarUsuarios();
-        Task<Usuario> BuscarUsuario(int UsuarioID);
+        Task<List<Usuario>> BuscarUsuario(int UsuarioID);
         Task<bool> AtualizarUsuario(Usuario usuario);
         Task<bool> ExcluirUsuario(int usuarioId);
     }

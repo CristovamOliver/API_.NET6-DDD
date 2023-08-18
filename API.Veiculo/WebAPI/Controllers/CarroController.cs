@@ -2,6 +2,7 @@
 using Application.DTO;
 using Application.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System.Net;
 
 namespace WebAPI.Controllers
@@ -41,7 +42,7 @@ namespace WebAPI.Controllers
             try
             {
                 var buscarcarro = await _carroAppService.CarroEspecifico(carroId);
-                if (buscarcarro == null)
+                if (buscarcarro.IsNullOrEmpty())
                     return NotFound("Carro não encontrado !");
                 return Ok(buscarcarro);
             }
