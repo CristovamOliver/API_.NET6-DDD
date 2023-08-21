@@ -68,7 +68,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("atualizar/{carroId}")]
-        public async Task<IActionResult> Atualizarcarro(CarroDTO carroId)
+        public async Task<IActionResult> AtualizarCarro(CarroDTO carroId)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace WebAPI.Controllers
             }
         }
         [HttpDelete("deletar/{carroId}")]
-        public async Task<IActionResult> Deletarcarro(int carroId)
+        public async Task<IActionResult> DeletarCarro(int carroId)
         {
             try
             {
