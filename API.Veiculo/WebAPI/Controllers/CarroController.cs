@@ -75,7 +75,7 @@ namespace WebAPI.Controllers
                 var atualizarcarro = await _carroAppService.AtualizarCarro(carroId);
                 if (atualizarcarro)
                     return Ok(atualizarcarro);
-                return BadRequest("Não foi possível atualizar usuário");
+                return BadRequest("Não foi possível atualizar o carro");
             }
             catch (ArgumentException ex)
             {

@@ -36,6 +36,7 @@ namespace Application.Service
             var carroEspecifico = _mapper.Map<List<CarroDTO>>(await _carroService.CarroEspecifico(carroId));
             var listaSemEspaco = carroEspecifico = carroEspecifico.Select(item => {
                 item.Modelo = Regex.Replace(item.Modelo, @"\s+", ""); // remove all white spaces
+                item.Marca = Regex.Replace(item.Marca, @"\s+", ""); // remove all white spaces
                 item.Cor = Regex.Replace(item.Cor, @"\s+", ""); // remove all white spaces
                 return item; // return processed item...
             }).ToList(); // return as a List
@@ -54,6 +55,7 @@ namespace Application.Service
 
             var listaSemEspaco = selecionarCarros = selecionarCarros.Select(item => {
                 item.Modelo = Regex.Replace(item.Modelo, @"\s+", ""); // remove all white spaces
+                item.Marca = Regex.Replace(item.Marca, @"\s+", ""); // remove all white spaces
                 item.Cor = Regex.Replace(item.Cor, @"\s+", ""); // remove all white spaces
                 return item; // return processed item...
             }).ToList(); // return as a List
